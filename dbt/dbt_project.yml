@@ -1,0 +1,26 @@
+name: 'dea_batch_scd2'
+version: '1.0.0'
+
+profile: 'default'
+
+model-paths: ["models"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+analysis-paths: ["analyses"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+vars:
+  target_db: DEA_BATCH_SCD2
+  target_schema: RAW
+  stage_name: DEA_BATCH_SCD2.RAW.DEA_BATCH_SCD2_STAGE
+
+models:
+  dea_batch_scd2:
+    batch_scd2:
+      +materialized: table

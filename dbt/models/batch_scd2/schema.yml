@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: product_raw
+    description: "dbt model to create the product raw table (append-only history of every extracted row)"
+
+  - name: product_transformed
+    description: "dbt model to create the product transformed table (one cleaned row per product)"
+    columns:
+      - name: PRODUCT_ID
+        data_tests:
+          - unique
+          - not_null
+
+snapshots:
+  - name: product_snapshot
+    description: "SCD Type 2 history of products"
+
+sources:
+  - name: product
+    database: DEA_BATCH_SCD2
+    schema: RAW
+    tables:
+      - name: PRODUCT_CP
