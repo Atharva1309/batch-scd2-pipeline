@@ -72,7 +72,7 @@ Product 3001 ends with three versions (5.99 → 6.49 → 6.99); products 4001, 4
 
 ## Notes
 
-- Never re-run `CREATE OR REPLACE STORAGE INTEGRATION` — it issues a new external ID and breaks the AWS trust policy.
+- Never re-run `CREATE OR REPLACE STORAGE INTEGRATION` - it issues a new external ID and breaks the AWS trust policy.
 - Never full-refresh `product_raw` — `PRODUCT_CP` only holds the latest batch, so a rebuild would lose history.
 - Hard deletes in MySQL are not captured (the extract is based on `updated_at`).
 - Replace every `<PLACEHOLDER>` with your own values; keys and credentials are excluded via `.gitignore`.
