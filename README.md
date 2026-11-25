@@ -1,4 +1,4 @@
-# Batch Processing with SCD Type 2 — AWS Glue · S3 · Snowflake · dbt
+# Batch Processing with SCD Type 2 - AWS Glue · S3 · Snowflake · dbt
 
 An end-to-end batch data pipeline that incrementally extracts product data from MySQL on Amazon RDS, validates it with AWS Glue, lands it in S3 as Parquet, loads it into Snowflake, and uses dbt to clean it and keep full history with **Slowly Changing Dimension (SCD) Type 2** snapshots.
 
@@ -48,7 +48,7 @@ docs/          Architecture diagram
 
 ## Setup order
 
-1. **S3** — create the data and error buckets.
+1. **S3** - create the data and error buckets.
 2. **IAM** — Glue role (`aws/iam/glue_role_trust_policy.json`) and Snowflake role.
 3. **VPC** — VPC, two subnets in different AZs, route table, IGW, security group (self-referencing All TCP + 3306 from your IP), S3 Gateway endpoint and Glue Interface endpoint.
 4. **RDS MySQL** — DB subnet group, instance, database `dea`; run `mysql/01_create_product_table.sql`.
